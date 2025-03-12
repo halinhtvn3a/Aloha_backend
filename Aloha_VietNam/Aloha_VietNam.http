@@ -1,0 +1,6 @@
+@Aloha_VietNam_HostAddress = http://localhost:5074
+
+GET {{Aloha_VietNam_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
