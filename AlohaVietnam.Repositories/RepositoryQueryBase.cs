@@ -1,4 +1,5 @@
-﻿using AlohaVietnam.Repositories.Interfaces;
+﻿using AlohaVietnam.Repositories.Domains;
+using AlohaVietnam.Repositories.Interfaces;
 using AlohaVietnam.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AlohaVietnam.Repositories
 {
-    public class RepositoryQueryBase<T, K> : IRepositoryQueryBase<T, K> 
+    public class RepositoryQueryBase<T, K> : IRepositoryQueryBase<T, K> where T : EntityBase<K>
     {
         private readonly AlohaVietnamContext _context;
         private readonly DbSet<T> _dbSet;

@@ -9,7 +9,7 @@ public partial class SideQuest
 {
     public int Id { get; set; }
 
-    public int PackageId { get; set; }
+    public int CityId { get; set; }
 
     public string Title { get; set; }
 
@@ -19,7 +19,7 @@ public partial class SideQuest
 
     public string Requirement { get; set; }
 
-    public virtual Package Package { get; set; }
+    public virtual City City { get; set; }
 
     public virtual ICollection<UserProgress> UserProgresses { get; set; } = new List<UserProgress>();
 }

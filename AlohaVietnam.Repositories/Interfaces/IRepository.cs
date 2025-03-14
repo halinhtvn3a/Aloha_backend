@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AlohaVietnam.Repositories.Domains;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AlohaVietnam.Repositories.Interfaces
 {
-    public interface IRepository<T, TKey> : IRepositoryQueryBase<T, TKey>
+    public interface IRepository<T, TKey> : IRepositoryQueryBase<T, TKey> where T : EntityBase<TKey>
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<IQueryable<T>> GetDbSet();

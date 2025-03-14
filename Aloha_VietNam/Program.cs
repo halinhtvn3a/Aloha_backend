@@ -1,8 +1,10 @@
 
+using AlohaVietnam.Repositories.Interfaces;
 using AlohaVietnam.Repositories.Models;
 using AlohaVietnam.Services;
 using AlohaVietnam.Services.Helper;
 using AlohaVietnam.Services.Interfaces;
+using EduTrailblaze.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,7 +25,9 @@ namespace Aloha_VietNam
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
             builder.Services.AddScoped<IAuthService,AuthService>();
+            builder.Services.AddScoped<IPackageService, PackageService>();
             builder.Services.AddScoped<ITokenGenerator,TokenGenerator>();
 
             builder.Services.AddIdentity<User, IdentityRole>(option =>

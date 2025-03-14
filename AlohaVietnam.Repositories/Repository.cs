@@ -1,5 +1,6 @@
 ﻿
 using AlohaVietnam.Repositories;
+using AlohaVietnam.Repositories.Domains;
 using AlohaVietnam.Repositories.Interfaces;
 using AlohaVietnam.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +8,7 @@ using System.Data.SqlTypes;
 
 namespace EduTrailblaze.Repositories
 {
-    public class Repository<T, TKey> : RepositoryQueryBase<T, TKey>, IRepository<T, TKey>
+    public class Repository<T, TKey> : RepositoryQueryBase<T, TKey>, IRepository<T, TKey> where T : EntityBase<TKey>
     {
         private readonly AlohaVietnamContext _context;
         private readonly DbSet<T> _dbSet;

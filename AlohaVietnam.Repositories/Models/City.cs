@@ -11,7 +11,11 @@ public partial class City
 
     public string Name { get; set; }
 
+    public virtual ICollection<Clue> Clues { get; set; } = new List<Clue>();
+
     public virtual ICollection<Package> Packages { get; set; } = new List<Package>();
+
+    public virtual ICollection<SideQuest> SideQuests { get; set; } = new List<SideQuest>();
 
     public virtual ICollection<SubscriptionPlan> SubscriptionPlans { get; set; } = new List<SubscriptionPlan>();
 }

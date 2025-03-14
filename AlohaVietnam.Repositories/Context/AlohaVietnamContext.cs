@@ -62,17 +62,17 @@ public partial class AlohaVietnamContext : IdentityDbContext<User>
         {
             entity.HasKey(e => e.Id).HasName("PK__Clues__3214EC07493E4063");
 
-            entity.HasIndex(e => e.PackageId, "IX_Clues_PackageId");
+            entity.HasIndex(e => e.CityId, "IX_Clues_CityId");
 
             entity.Property(e => e.AnswerCode)
                 .IsRequired()
                 .HasMaxLength(50);
             entity.Property(e => e.Question).IsRequired();
 
-            entity.HasOne(d => d.Package).WithMany(p => p.Clues)
-                .HasForeignKey(d => d.PackageId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Clues__PackageId__3C69FB99");
+            //entity.HasOne(d => d.CityId).WithMany(p => p.Clues)
+            //    .HasForeignKey(d => d.PackageId)
+            //    .OnDelete(DeleteBehavior.ClientSetNull)
+            //    .HasConstraintName("FK__Clues__PackageId__3C69FB99");
         });
 
         modelBuilder.Entity<Feedback>(entity =>
@@ -114,16 +114,16 @@ public partial class AlohaVietnamContext : IdentityDbContext<User>
         {
             entity.HasKey(e => e.Id).HasName("PK__SideQues__3214EC078EB65152");
 
-            entity.HasIndex(e => e.PackageId, "IX_SideQuests_PackageId");
+            entity.HasIndex(e => e.CityId, "IX_SideQuests_PackageId");
 
             entity.Property(e => e.Title)
                 .IsRequired()
                 .HasMaxLength(100);
 
-            entity.HasOne(d => d.Package).WithMany(p => p.SideQuests)
-                .HasForeignKey(d => d.PackageId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__SideQuest__Packa__3F466844");
+            //entity.HasOne(d => d.CityId).WithMany(p => p.SideQuests)
+            //    .HasForeignKey(d => d.PackageId)
+            //    .OnDelete(DeleteBehavior.ClientSetNull)
+            //    .HasConstraintName("FK__SideQuest__Packa__3F466844");
         });
         
 
